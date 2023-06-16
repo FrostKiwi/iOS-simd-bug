@@ -39,16 +39,16 @@ CAUSE_FOR_RELINKING = $(wildcard src/web/*) \
 # These emscripten flags need to be present during compilation, because this
 # triggers the package manager to download everything that's needed like SDL and
 # the associated dependencies.
-EMCC_FLAGS= -s USE_SDL=2 \
-			-s USE_SDL_IMAGE=2 \
-			-s SDL2_IMAGE_FORMATS='["jpg", "png", "heic"]' \
+#EMCC_FLAGS= -s USE_SDL=2 \
+#			-s USE_SDL_IMAGE=2 \
+#			-s SDL2_IMAGE_FORMATS='["jpg", "png", "heic"]' \
 
 # Pull javascript through the emscripten optimizer pipeline
 JS_FILES= --extern-pre-js=src/web/js/shell.js \
-		  --pre-js=src/web/js/userfile.js \
-		  --pre-js=src/web/js/webcam.js \
-		  --pre-js=src/web/js/video.js \
-		  --pre-js=src/web/js/videofile.js
+#		  --pre-js=src/web/js/userfile.js \
+#		  --pre-js=src/web/js/webcam.js \
+#		  --pre-js=src/web/js/video.js \
+#		  --pre-js=src/web/js/videofile.js
 
 # -Wl,-u,fileno is a workaround for an outstanding issue with LTO and emscripten
 # LTO is mega awesome, but the interaction with javascript causes it to
