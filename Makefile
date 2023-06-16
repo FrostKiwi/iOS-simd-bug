@@ -14,12 +14,13 @@ debug: CFLAGS = $(WARN) -std=gnu11 -O0
 # for C code to be alled from Javascript, even when the functions in question
 # are not called in the C code itself. Other options is EMSCRIPTEN_KEEPALIVE,
 # but that doesn't for for things not defined in the C source like malloc.
-PROTECT = ["_process_webcam", \
-		   "_setup_webcam", \
-		   "_load_photo", \
-		   "_main", \
-		   "_malloc", \
-		   "_free"]
+#PROTECT = ["_process_webcam", \
+#		   "_setup_webcam", \
+#		   "_load_photo", \
+#		   "_main", \
+#		   "_malloc", \
+#		   "_free"]
+PROTECT = ["_main"]
 
 # If any of these files change, recompile everything
 # Consider the Makefile and headers
@@ -59,8 +60,8 @@ EMCC_LINKER_FLAGS = $(EMCC_FLAGS) \
 					-s ALLOW_MEMORY_GROWTH \
 					$(JS_FILES) \
 					--use-preload-plugins \
-					--preload-file res \
-					-Wl,-u,fileno
+#					--preload-file res \
+#					-Wl,-u,fileno
 
 # ========= Implementation ========= #
 # Source files are all .c files under src
