@@ -70,7 +70,7 @@ OBJ = $(patsubst src/%.c, obj/%.o, $(SRC))
 
 # Include files for Nuklear were moved into their own folder, so two includes
 # are needed
-INC = -Iinc -Iinc/nuklear
+INC = -Iinc -Iinc/nuklear -Icglm/include/
 
 release debug: out/index.html
 
