@@ -7,7 +7,7 @@
 # ========= Settings ========= #
 WARN=-Wall -Wno-missing-braces -Wmissing-field-initializers
 
-release: CFLAGS = $(WARN) -std=gnu11 -O3 -msimd128 -flto # O3 + LTO + SIMD
+release: CFLAGS = $(WARN) -std=gnu11 -O0 -msimd128 -flto # disabled O3 to tease out bug + LTO + SIMD
 debug: CFLAGS = $(WARN) -std=gnu11 -O0
 
 # Functions to be prevented from being deleted as dead code. This is to allow
